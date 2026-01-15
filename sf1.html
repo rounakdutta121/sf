@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 9001 Lead Auditor Training - SF Trainings</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS for Layout & Utility -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #ff9800;
+            --dark: #1a202c;
+            --light: #f7fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .nav-link {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0056b3 0%, #003d7a 100%);
+        }
+
+        /* Responsive clip-path */
+        .hero-shape {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+        @media (min-width: 768px) {
+            .hero-shape {
+                clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            }
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #e68a00;
+            transform: scale(1.05);
+        }
+
+        .form-input {
+            border: 2px solid #e2e8f0;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        /* Testimonial Animation */
+        .testimonial-track {
+            display: flex;
+            gap: 20px;
+            animation: scroll 30s linear infinite;
+        }
+        @media (min-width: 768px) {
+            .testimonial-track {
+                animation: scroll 45s linear infinite;
+            }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .pause-scroll:hover .testimonial-track {
+            animation-play-state: paused;
+        }
+        
+        html {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Logo circle container style */
+        .logo-circle {
+            width: 48px;
+            height: 48px;
+            background-color: white;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 4px;
+        }
+        @media (min-width: 768px) {
+            .logo-circle {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* Fixed Footer Bar */
+        .fixed-contact-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid rgba(0,0,0,0.05);
+            gap: 15px;
+            width: max-content;
+            max-width: 90vw;
+        }
+
+        .pulse {
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm md:shadow-md">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex-shrink-0">
+                <img src="https://www.sftrainings.org/wp-content/uploads/elementor/thumbs/SF-Training-Final-Logo-1080-1-qikqabiklgbclt3t1wknxt9ybq8lqryju9ctvjsh60.png" 
+                     alt="SF Trainings Logo" class="h-10 md:h-14 lg:h-16 w-auto">
+            </a>
+            <div class="flex space-x-4 md:space-x-8 items-center">
+                
+                
+                <a href="#about" class="btn-primary text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full font-bold text-sm md:text-base whitespace-nowrap">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg hero-shape text-white pt-10 pb-24 md:pt-16 md:pb-32 px-4 md:px-6">
+        <div class="container mx-auto flex flex-col lg:flex-row items-center gap-12">
+            <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
+                <span class="inline-block px-4 py-1 bg-orange-500 rounded-full text-xs md:text-sm font-bold mb-4 uppercase tracking-widest">IEB UK & Exemplar Global Certified</span>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    ISO 9001 Lead Auditor <br class="hidden md:block"> Training Course
+                </h1>
+                <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 max-w-2xl mx-auto lg:mx-0">
+                    Become a certified Lead Auditor in just 5 days. Master QMS implementation, auditing standards, and the 2024 amendments with industry experts from <strong>Sustainable Futures Trainings</strong>.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                    <a href="#contact" target="_blank" class="btn-primary px-8 py-4 rounded-lg font-bold text-lg shadow-lg w-full sm:w-auto flex items-center justify-center gap-2">
+                        <i data-lucide="message-circle"></i> Get Batch Details On Whatsapp
+                    </a>
+                    <a href="#details" class="bg-white/10 hover:bg-white/20 px-8 py-4 rounded-lg font-bold text-lg backdrop-blur-sm border border-white/30 w-full sm:w-auto">View Course Details</a>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 relative mt-8 lg:mt-0" data-aos="zoom-in">
+                <div class="bg-white p-3 md:p-4 rounded-2xl shadow-2xl md:rotate-3 mx-auto max-w-md lg:max-w-none">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Training Session" class="rounded-xl w-full">
+                    <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-orange-500 p-4 md:p-6 rounded-xl shadow-xl md:-rotate-3 text-center sm:text-left">
+                        <p class="text-2xl md:text-3xl font-bold">40 Hours</p>
+                        <p class="text-xs md:text-sm uppercase font-bold tracking-tighter opacity-80">Live-Online Training</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Course Quick Stats -->
+    <section id="details" class="container mx-auto px-4 md:px-6 -mt-12 md:-mt-16 relative z-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            
+            <!-- Delivery -->
+            <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg text-center card-hover transition" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="video"></i>
+                </div>
+                <h3 class="font-bold text-gray-400 uppercase text-[10px] md:text-xs">Delivery</h3>
+                <p class="text-lg md:text-xl font-bold">Live-Online,<br> Tutor Led</p>
+            </div>
+
+            <!-- IEB UK -->
+            <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg text-center card-hover transition" data-aos="fade-up" data-aos-delay="200">
+                <div class="logo-circle">
+                    <img src="https://preeminent-speculoos-9536d8.netlify.app/assets/logos/ieb_logo_raw.png" alt="IEB UK Logo" class="w-full h-full object-contain">
+                </div>
+                <h3 class="font-bold text-gray-400 uppercase text-[10px] md:text-xs">Accreditation</h3>
+                <p class="text-lg md:text-xl font-bold leading-tight">International Education Board (IEB), UK</p>
+            </div>
+
+            <!-- Exemplar Global -->
+            <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg text-center card-hover transition" data-aos="fade-up" data-aos-delay="300">
+                <div class="logo-circle">
+                    <img src="https://preeminent-speculoos-9536d8.netlify.app/assets/logos/logo2.png" alt="Exemplar Global Logo" class="w-full h-full object-contain">
+                </div>
+                <h3 class="font-bold text-gray-400 uppercase text-[10px] md:text-xs">Recognised Provider</h3>
+                <p class="text-lg md:text-xl font-bold leading-tight">Exemplar Global, USA</p>
+            </div>
+
+            <!-- Assessment -->
+            <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg text-center card-hover transition" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="award"></i>
+                </div>
+                <h3 class="font-bold text-gray-400 uppercase text-[10px] md:text-xs">Assessment</h3>
+                <p class="text-lg md:text-xl font-bold">Online MCQ Based</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section id="outcomes" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-bold mb-4">What You Will Master</h2>
+                <div class="w-16 md:w-20 h-1.5 bg-orange-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Card 1 -->
+                <div class="p-6 md:p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-xl transition group" data-aos="fade-up">
+                    <div class="mb-4 text-blue-600 transition group-hover:scale-110"><i data-lucide="book-open" size="32"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">Master ISO 9001 Standard</h3>
+                    <p class="text-sm md:text-base text-gray-600">Understand core concepts, principles, and the 2024 amendment updates regarding climate change.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-6 md:p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-xl transition group" data-aos="fade-up">
+                    <div class="mb-4 text-blue-600 transition group-hover:scale-110"><i data-lucide="clipboard-check" size="32"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">Plan & Conduct Audits</h3>
+                    <p class="text-sm md:text-base text-gray-600">Learn to define scope, develop checklists, and perform on-site interviews effectively.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-6 md:p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-xl transition group" data-aos="fade-up">
+                    <div class="mb-4 text-blue-600 transition group-hover:scale-110"><i data-lucide="shield-alert" size="32"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">Risk-Based Thinking</h3>
+                    <p class="text-sm md:text-base text-gray-600">Apply risk identification and mitigation strategies aligned with the latest standard amendments.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="p-6 md:p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-xl transition group" data-aos="fade-up">
+                    <div class="mb-4 text-blue-600 transition group-hover:scale-110"><i data-lucide="message-square" size="32"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">Communication Skills</h3>
+                    <p class="text-sm md:text-base text-gray-600">Hone your interviewing techniques and learn to write clear, objective audit reports.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="p-6 md:p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-xl transition group" data-aos="fade-up">
+                    <div class="mb-4 text-blue-600 transition group-hover:scale-110"><i data-lucide="trending-up" size="32"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">ISO 19011:2018 Guidelines</h3>
+                    <p class="text-sm md:text-base text-gray-600">Interpret and apply international auditing standards for management systems.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="p-6 md:p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-xl transition group" data-aos="fade-up">
+                    <div class="mb-4 text-blue-600 transition group-hover:scale-110"><i data-lucide="check-circle" size="32"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">Certification Ready</h3>
+                    <p class="text-sm md:text-base text-gray-600">Get fully prepared to pass the Exemplar Global Certified Lead Auditor examination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accreditation Section -->
+    <section class="py-16 md:py-24 bg-gray-50 border-y border-gray-100">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-bold mb-4">Accreditation & Certification</h2>
+                <div class="w-16 md:w-20 h-1.5 bg-orange-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Exemplar Global -->
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-white p-8 rounded-3xl shadow-lg border border-gray-100" data-aos="fade-right">
+                    <div class="w-full md:w-2/5 flex-shrink-0">
+                        <img src="https://preeminent-speculoos-9536d8.netlify.app/assets/exemplar_cert.png" alt="Exemplar Global Certification" class="w-full h-auto rounded-lg shadow-md">
+                    </div>
+                    <div class="w-full md:w-3/5">
+                        <h3 class="text-xl md:text-2xl font-bold mb-4 text-blue-900">Exemplar Global Certified</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Sustainable Futures Trainings is an Exemplar Global Certified Training Provider, authorized to deliver accredited ISO Lead Auditor certification courses.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- IEB UK -->
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-white p-8 rounded-3xl shadow-lg border border-gray-100" data-aos="fade-left">
+                    <div class="w-full md:w-2/5 flex-shrink-0">
+                        <img src="https://preeminent-speculoos-9536d8.netlify.app/assets/ieb_cert_v4.png" alt="IEB UK Accreditation" class="w-full h-auto rounded-lg shadow-md">
+                    </div>
+                    <div class="w-full md:w-3/5">
+                        <h3 class="text-xl md:text-2xl font-bold mb-4 text-blue-900">IEB Full Accreditation</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Sustainable Futures Trainings has been awarded Full Accreditation (Grade A+) by the International Education Board United Kingdom, recognizing our commitment to Academic Quality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 md:py-24 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <h3 class="text-orange-500 font-bold uppercase tracking-widest text-sm mb-2">Empower Excellence. Lead Sustainability.</h3>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-blue-900 leading-tight">Driving Global Growth & Excellence</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        <strong>Sustainable Futures Training (SFT)</strong> is a leading global organization dedicated to driving growth and excellence across industries. As a Recognized Training Provider (RTP) accredited by Exemplar Global (USA) and the International Education Board (IEB), UK, we provide world-class certification programs that set the benchmark for professional standards.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
+                                <i data-lucide="globe"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Global Prestige</h4>
+                                <p class="text-sm text-gray-600">Recognized worldwide for high-level employability.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Expert Team</h4>
+                                <p class="text-sm text-gray-600">Instructors with 15+ years of industry experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 bg-gray-50 p-8 md:p-12 rounded-3xl border border-gray-200" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-6">The SFT Advantage</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-green-500 text-white rounded-full p-1"><i data-lucide="check" size="16"></i></div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Exclusive Networking</p>
+                                <p class="text-sm text-gray-600">Access to the Exemplar LINK platform for global professional development.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-green-500 text-white rounded-full p-1"><i data-lucide="check" size="16"></i></div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Flexible Learning</p>
+                                <p class="text-sm text-gray-600">Online, offline, and on-site modes supported by convenient examinations.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-green-500 text-white rounded-full p-1"><i data-lucide="check" size="16"></i></div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Verified Mastery</p>
+                                <p class="text-sm text-gray-600">Comprehensive transcripts detailing your content mastery.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-10 pt-8 border-t border-gray-200">
+                        <p class="text-gray-600 italic">"We don't just teach; we transform. Our programs are built on over 30 years of global benchmarks."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 md:py-24 bg-gray-50 overflow-hidden pause-scroll">
+        <div class="container mx-auto px-4 md:px-6 mb-12 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Student Feedback</h2>
+            <div class="w-12 h-1 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+        <div class="testimonial-track py-4">
+            <!-- Items -->
+            <div class="min-w-[300px] md:min-w-[400px] bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                <p class="italic text-gray-600 mb-4">"I did the ISO 9001 course from SF. It gave me a significant advantage in my current role. Highly recommended!"</p>
+                <div class="font-bold text-blue-600">— Shivani Sharma</div>
+            </div>
+            <div class="min-w-[300px] md:min-w-[400px] bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                <p class="italic text-gray-600 mb-4">"The training was exceptionally structured. The instructors were true industry veterans."</p>
+                <div class="font-bold text-blue-600">— Sriraag Avasarala</div>
+            </div>
+            <div class="min-w-[300px] md:min-w-[400px] bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                <p class="italic text-gray-600 mb-4">"Excellent real-world examples. Made complex concepts very easy to understand."</p>
+                <div class="font-bold text-blue-600">— Vishal Sharma</div>
+            </div>
+            <div class="min-w-[300px] md:min-w-[400px] bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                <p class="italic text-gray-600 mb-4">"The online platform was seamless. Great interactive sessions."</p>
+                <div class="font-bold text-blue-600">— Mayank</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="w-full lg:w-5/12" data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Book Your Slot</h2>
+                    <p class="text-gray-600 mb-10 leading-relaxed">Join our upcoming batch. Contact us for detailed fees, corporate discounts, and schedule.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                                <i data-lucide="phone" size="20"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">WhatsApp / Call</h4>
+                                <p class="text-gray-600">+91-90567-42783</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                                <i data-lucide="mail" size="20"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-gray-600">info@sftrainings.org</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-7/12" data-aos="fade-left">
+                    <div class="bg-gray-50 p-6 md:p-10 rounded-3xl shadow-xl">
+                        <form id="leadForm" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Full Name *" class="w-full p-3 rounded-lg form-input" required>
+                                <input type="email" placeholder="Email Address *" class="w-full p-3 rounded-lg form-input" required>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <input type="tel" placeholder="Phone Number *" class="w-full p-3 rounded-lg form-input" required>
+                                <input type="text" placeholder="Location" class="w-full p-3 rounded-lg form-input">
+                            </div>
+                            <textarea rows="4" placeholder="Your Query" class="w-full p-3 rounded-lg form-input"></textarea>
+                            <button type="submit" class="w-full btn-primary text-white py-4 rounded-lg font-bold text-lg shadow-lg">
+                                Send Inquiry
+                            </button>
+                        </form>
+                        <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg text-center font-bold">
+                            Thank you! We'll get back to you shortly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIXED CONTACT BAR -->
+    <div class="fixed-contact-bar">
+        <!-- Enquire Now Center -->
+        <a href="#contact" class="bg-blue-900 text-white px-6 py-2.5 rounded-full font-bold text-xs md:text-sm uppercase tracking-wider pulse flex items-center gap-2 hover:bg-black transition">
+            <i data-lucide="send" size="16"></i> Inquire Now
+        </a>
+
+        <!-- Vertical Divider -->
+        <div class="w-px h-6 bg-gray-200"></div>
+
+        <!-- WhatsApp Icon -->
+        <a href="https://wa.me/919056742783" target="_blank" class="text-green-600 hover:scale-110 transition p-1" aria-label="WhatsApp">
+            <i data-lucide="message-circle" size="28"></i>
+        </a>
+
+        <!-- Call Icon -->
+        <a href="tel:+919056742783" class="text-blue-600 hover:scale-110 transition p-1" aria-label="Call">
+            <i data-lucide="phone" size="28"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-500 py-12 mb-20 md:mb-0">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <img src="https://www.sftrainings.org/wp-content/uploads/elementor/thumbs/SF-Training-Final-Logo-1080-1-qikqabiklgbclt3t1wknxt9ybq8lqryju9ctvjsh60.png" 
+                 alt="SF Trainings" class="h-10 mx-auto mb-6 grayscale brightness-200 opacity-50">
+            <p class="text-xs mb-8 max-w-xl mx-auto">Sustainable Futures Trainings is a global leader in professional compliance education and ISO auditing certifications.</p>
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-[10px] uppercase tracking-widest">&copy; 2024 SF Trainings. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        AOS.init({ duration: 800, once: true });
+
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.disabled = true;
+            btn.innerText = 'Sending...';
+            
+            setTimeout(() => {
+                this.classList.add('hidden');
+                document.getElementById('formSuccess').classList.remove('hidden');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
