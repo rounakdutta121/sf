@@ -115,10 +115,9 @@
             transform: rotate(180deg);
         }
 
-        /* POSITION UPDATED: Bottom Left for all devices */
         .early-bird-card {
             position: fixed;
-            bottom: 100px; /* Above the contact bar */
+            bottom: 100px; 
             left: 20px;
             z-index: 40;
             cursor: pointer;
@@ -130,7 +129,6 @@
             100% { box-shadow: 0 0 25px rgba(255, 152, 0, 0.8), 0 0 10px rgba(255, 152, 0, 0.6); }
         }
 
-        /* Responsive Mobile Adjustments */
         @media (max-width: 640px) {
             .early-bird-card {
                 bottom: 85px;
@@ -145,7 +143,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Early Bird Glowing Card (Positioned Bottom Left) -->
+    <!-- Early Bird Glowing Card -->
     <div onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="early-bird-card bg-orange-500 text-white p-4 rounded-2xl flex flex-col items-center justify-center text-center transition-transform hover:scale-110 active:scale-95 shadow-lg">
         <span class="text-[10px] font-bold uppercase tracking-widest opacity-90">Early Bird Offer</span>
         <div class="text-2xl md:text-3xl font-black leading-none my-1">15% OFF</div>
@@ -271,7 +269,6 @@
                     </ul>
                 </div>
 
-                <!-- Modules 4, 5, 6 row -->
                 <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 card-hover transition-all" data-aos="fade-up">
                     <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-xl text-xl font-bold">04</div>
                     <h3 class="text-xl font-bold mb-4 text-blue-900 leading-tight">Planning an Audit</h3>
@@ -302,7 +299,6 @@
                     </ul>
                 </div>
 
-                <!-- Exam CTA -->
                 <div class="p-8 md:p-12 rounded-3xl bg-orange-50 border border-orange-100 lg:col-span-3 flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
                     <div class="w-20 h-20 bg-orange-500 text-white rounded-3xl flex items-center justify-center flex-shrink-0 shadow-2xl">
                         <i data-lucide="award" size="44"></i>
@@ -374,7 +370,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Corporate CTA -->
     <section class="py-24 bg-blue-900 text-white relative overflow-hidden">
@@ -449,10 +444,66 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-950 text-gray-500 py-16 mb-24 md:mb-0">
-        <div class="container mx-auto px-4 text-center">
-            <img src="https://www.sftrainings.org/wp-content/uploads/elementor/thumbs/SF-Training-Final-Logo-1080-1-qikqabiklgbclt3t1wknxt9ybq8lqryju9ctvjsh60.png" class="h-12 mx-auto mb-8 grayscale brightness-200 opacity-40">
-            <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium">&copy; 2024 SF Trainings. All rights reserved.<a href="https://www.sftrainings.org/Privacy%20Policy/">Privacy Policy.</a></p>
+    <footer class="bg-gray-950 text-white pt-20 pb-10 mb-24 md:mb-0">
+        <div class="container mx-auto px-4 md:px-8">
+            <!-- Offices Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <!-- India Office -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <div class="w-12 h-12 bg-blue-900/50 rounded-xl flex items-center justify-center mb-4 text-blue-400">
+                        <i data-lucide="map-pin" size="24"></i>
+                    </div>
+                    <h5 class="text-xl font-bold mb-3 text-orange-500">India</h5>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        146, Sector 82, Mohali,<br> Punjab - 160062
+                    </p>
+                    <a href="tel:+919056742782" class="flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                        <i data-lucide="phone" size="16"></i> +91 9056742782
+                    </a>
+                </div>
+
+                <!-- Canada Office -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <div class="w-12 h-12 bg-blue-900/50 rounded-xl flex items-center justify-center mb-4 text-blue-400">
+                        <i data-lucide="map-pin" size="24"></i>
+                    </div>
+                    <h5 class="text-xl font-bold mb-3 text-orange-500">Canada</h5>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        8449, 116 A Street, Delta - V4C7N7,<br> Greater Vancouver
+                    </p>
+                    <a href="tel:+17787989624" class="flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
+                        <i data-lucide="phone" size="16"></i> +1 (778) 798-9624
+                    </a>
+                </div>
+
+                <!-- Dubai Office -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <div class="w-12 h-12 bg-blue-900/50 rounded-xl flex items-center justify-center mb-4 text-blue-400">
+                        <i data-lucide="map-pin" size="24"></i>
+                    </div>
+                    <h5 class="text-xl font-bold mb-3 text-orange-500">Dubai</h5>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Suite No 2902 and 2903, The Prism Tower,<br> Business Bay, Dubai, UAE
+                    </p>
+                    <div class="flex items-center gap-2 text-white font-semibold">
+                        <i data-lucide="globe" size="16"></i> United Arab Emirates
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-gray-800 mb-10">
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <img src="https://www.sftrainings.org/wp-content/uploads/elementor/thumbs/SF-Training-Final-Logo-1080-1-qikqabiklgbclt3t1wknxt9ybq8lqryju9ctvjsh60.png" 
+                     class="h-10 grayscale brightness-200 opacity-60">
+                
+                <div class="text-center md:text-right">
+                    <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-gray-500 mb-2">
+                        &copy; 2024 SF Trainings. All rights reserved.
+                    </p>
+                    <a href="https://www.sftrainings.org/Privacy%20Policy/" class="text-[10px] text-orange-500/60 hover:text-orange-500 underline underline-offset-4">Privacy Policy</a>
+                </div>
+            </div>
         </div>
     </footer>
 
