@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISO 9001 Lead Auditor Training - SF Trainings</title>
+    <title>ISO 9001:2015 Lead Auditor Training - SF Trainings</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -29,401 +29,554 @@
         body {
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        h1, h2, h3, .nav-link {
+        h1, h2, h3 {
             font-family: 'Poppins', sans-serif;
         }
 
-        .gradient-bg {
-            background: linear-gradient(135deg, #0056b3 0%, #003d7a 100%);
+        .gradient-text {
+            background: linear-gradient(135deg, #0056b3, #00a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .hero-shape {
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-        }
-        @media (min-width: 768px) {
-            .hero-shape {
-                clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-            }
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1454165833767-027ffea7025c?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
         }
 
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        .btn-primary {
-            background-color: var(--secondary);
+        .custom-bullet li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .custom-bullet li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .outline-card {
+            border-left: 4px solid #0056b3;
             transition: all 0.3s ease;
         }
-
-        .btn-primary:hover {
-            background-color: #e68a00;
-            transform: scale(1.02);
+        
+        .outline-card:hover {
+            border-left-color: #ff9800;
+            background-color: #f8fafc;
         }
 
-        .form-input {
-            border: 2px solid #e2e8f0;
-            transition: border-color 0.3s ease;
+        .pulse-red {
+            animation: pulse-red 2s infinite;
         }
 
-        .form-input:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-
-        .fixed-contact-bar {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border: 1px solid rgba(0,0,0,0.05);
-            gap: 15px;
-            width: max-content;
-            max-width: 90vw;
-        }
-
-        .pulse {
-            animation: pulse-animation 2s infinite;
-        }
-
-        @keyframes pulse-animation {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        .accordion-item.active .accordion-content {
-            max-height: 500px;
-        }
-        .accordion-item.active i {
-            transform: rotate(180deg);
+        @keyframes pulse-red {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         .early-bird-card {
-            position: fixed;
-            bottom: 100px; 
-            left: 20px;
-            z-index: 40;
-            cursor: pointer;
-            animation: glow 3s infinite alternate;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #f59e0b;
         }
 
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px rgba(255, 152, 0, 0.4); }
-            100% { box-shadow: 0 0 25px rgba(255, 152, 0, 0.8), 0 0 10px rgba(255, 152, 0, 0.6); }
+        /* Responsive Logo Sizing */
+        .logo-group img {
+            max-height: 40px;
+            width: auto;
+            object-fit: contain;
         }
-
         @media (max-width: 640px) {
-            .early-bird-card {
-                bottom: 85px;
-                left: 10px;
-                padding: 0.75rem;
-            }
-            .early-bird-card .text-3xl {
-                font-size: 1.25rem;
-            }
+            .logo-group img { max-height: 25px; }
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Early Bird Glowing Card -->
-    <div onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="early-bird-card bg-orange-500 text-white p-4 rounded-2xl flex flex-col items-center justify-center text-center transition-transform hover:scale-110 active:scale-95 shadow-lg">
-        <span class="text-[10px] font-bold uppercase tracking-widest opacity-90">Early Bird Offer</span>
-        <div class="text-2xl md:text-3xl font-black leading-none my-1">15% OFF</div>
-        <span class="text-[10px] font-medium border-t border-orange-400 pt-1 mt-1">First 5 Registrations</span>
-        <div class="mt-2 bg-white text-orange-600 rounded-full p-1">
-            <i data-lucide="zap" size="14"></i>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
-            <a href="#" class="flex-shrink-0">
-                <img src="https://www.sftrainings.org/wp-content/uploads/elementor/thumbs/SF-Training-Final-Logo-1080-1-qikqabiklgbclt3t1wknxt9ybq8lqryju9ctvjsh60.png" 
-                     alt="SF Trainings Logo" class="h-10 md:h-14 w-auto object-contain">
-            </a>
-            <div class="flex space-x-4 items-center">
-                <a href="#contact" class="btn-primary text-white px-4 py-2 md:px-8 rounded-full font-bold text-sm md:text-base whitespace-nowrap shadow-md">Join Batch</a>
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur shadow-md">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logos -->
+            <div class="flex items-center gap-2 md:gap-4 logo-group">
+                <img src="https://www.sftrainings.org/wp-content/uploads/elementor/thumbs/SF-Training-Final-Logo-1080-1-qikqabiklgbclt3t1wknxt9ybq8lqryju9ctvjsh60.png" alt="SF Logo" class="h-8 md:h-12">
+                <img src="https://preeminent-speculoos-9536d8.netlify.app/assets/logos/logo2.png" alt="Logo 2" class="h-6 md:h-10">
+                <img src="https://preeminent-speculoos-9536d8.netlify.app/assets/logos/ieb_logo_bg.png" alt="IEB Logo" class="h-6 md:h-10">
             </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="gradient-bg hero-shape text-white pt-10 pb-24 md:pt-20 md:pb-40 px-4 md:px-8">
-        <div class="container mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-            <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
-                <span class="inline-block px-4 py-1 bg-orange-500 rounded-full text-xs md:text-sm font-bold mb-6 uppercase tracking-widest shadow-lg">IEB UK & Exemplar Global Certified</span>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                    ISO 9001 Lead Auditor <br class="hidden md:block"> Training Course
-                </h1>
-                <p class="text-base md:text-lg lg:text-xl opacity-90 mb-10 max-w-2xl mx-auto lg:mx-0">
-                    Master QMS implementation and auditing standards with the latest 2024 amendments. Get globally recognized certification in just 5 days.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                    <a href="https://wa.me/919056742783" target="_blank" class="btn-primary px-8 py-4 rounded-xl font-bold text-lg shadow-xl w-full sm:w-auto flex items-center justify-center gap-2 hover:shadow-2xl transition-all">
-                        <i data-lucide="message-circle"></i> Batch Details On Whatsapp
-                    </a>
-                </div>
-            </div>
-            <div class="w-full lg:w-1/2 relative mt-8 lg:mt-0" data-aos="zoom-in">
-                <div class="bg-white p-2 md:p-4 rounded-2xl shadow-2xl lg:rotate-3 mx-auto max-w-lg">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Training Session" class="rounded-xl w-full shadow-inner">
-                    <div class="absolute -bottom-6 -left-4 md:-bottom-8 md:-left-8 bg-orange-500 p-4 md:p-8 rounded-2xl shadow-2xl text-center transform hover:scale-105 transition-transform">
-                        <p class="text-2xl md:text-4xl font-black">40 Hours</p>
-                        <p class="text-[10px] md:text-xs uppercase font-bold tracking-widest opacity-90">Live-Online Training</p>
+            <!-- Desktop Nav Items -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="#about-us" class="font-medium hover:text-blue-600 transition">About</a>
+                <a href="#outline" class="font-medium hover:text-blue-600 transition">Curriculum</a>
+                
+                <!-- Fixed Early Bird Card -->
+                <a href="https://wa.me/919056742783?text=Hi, I want to claim the 15% Early Bird Discount for ISO 9001 Course!" target="_blank" class="early-bird-card px-4 py-2 rounded-xl flex items-center gap-3 hover:shadow-md transition group">
+                    <div class="bg-orange-500 text-white p-1.5 rounded-lg group-hover:scale-110 transition">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
                     </div>
-                </div>
+                    <div>
+                        <p class="text-[10px] uppercase font-bold text-orange-600 leading-none">Early Bird</p>
+                        <p class="text-sm font-bold text-gray-900 leading-tight">15% OFF Now</p>
+                    </div>
+                </a>
+
+                <a href="#register" class="bg-blue-700 text-white px-6 py-2.5 rounded-full font-bold hover:bg-blue-800 transition shadow-lg">Enroll Now</a>
             </div>
-        </div>
+
+            <!-- Mobile Action -->
+            <div class="lg:hidden flex items-center gap-2">
+                <a href="https://wa.me/919056742783" class="bg-orange-100 text-orange-700 p-2 rounded-lg border border-orange-200">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                </a>
+                <a href="#register" class="bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold">Enroll</a>
+            </div>
+        </nav>
     </header>
 
-    <!-- COMPACT BATCH BLOCK -->
-    <section class="container mx-auto px-4 md:px-8 -mt-16 md:-mt-24 relative z-10">
-        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border-b-8 border-orange-500" data-aos="fade-up">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
-                <div class="flex items-center gap-5">
-                    <div class="bg-blue-100 text-blue-600 p-4 rounded-2xl"><i data-lucide="calendar" size="28"></i></div>
-                    <div>
-                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest">Next Batch</h4>
-                        <p class="font-bold text-gray-800 text-sm md:text-base">16 Feb (Mon–Fri) <br> 9:00 AM – 5:00 PM IST</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-5 border-l-0 md:border-l lg:border-l-0 lg:border-r border-gray-100 md:pl-8 lg:pl-0 lg:pr-8">
-                    <div class="bg-orange-100 text-orange-600 p-4 rounded-2xl"><i data-lucide="users" size="28"></i></div>
-                    <div>
-                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest">Availability</h4>
-                        <p class="font-bold text-gray-800 text-sm md:text-base">Seats: 10 Left Only <br> <span class="text-green-600 font-extrabold flex items-center gap-1"><span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span> Filling Fast</span></p>
-                    </div>
-                </div>
-                <div class="md:col-span-2 lg:col-span-1 flex flex-col gap-3">
-                    <div class="flex items-center gap-2 justify-center lg:justify-start">
-                        <i data-lucide="tag" class="text-blue-600" size="18"></i>
-                        <span class="text-base font-bold text-gray-700">Fee: ₹35,000 <span class="text-xs font-normal opacity-70">(incl. exam + cert)</span></span>
-                    </div>
-                    <a href="https://wa.me/919056742783?text=Hi, I want to know the fee for ISO 9001 Lead Auditor Training" class="bg-blue-600 text-white text-center py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg flex items-center justify-center gap-2">
-                        Get Discount on WhatsApp
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center pt-24 md:pt-20">
+        <div class="container mx-auto px-6 text-white grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <span class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">IEB, UK Approved Course</span>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    ISO 9001:2015 <br>
+                    <span class="text-orange-400">Lead Auditor Training</span>
+                </h1>
+                <p class="text-base md:text-lg lg:text-xl mb-8 text-gray-200">
+                    A dynamic course designed to provide a deep and practical understanding of both ISO 9001 standard and the art of auditing. Master the proficiency and expertise required to conduct QMS audits for organizations adhering to international standards.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#register" class="bg-white text-blue-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition flex items-center gap-2 text-sm md:text-base">
+                        <i data-lucide="award"></i> Get Certified
                     </a>
+                    <a href="#about" class="border border-white/30 backdrop-blur-sm text-white px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition text-sm md:text-base">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Lead Form -->
+            <div id="register" data-aos="fade-left" class="bg-white p-6 md:p-8 rounded-2xl shadow-2xl text-gray-800">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 text-blue-900">Request Course Details</h3>
+                <form id="leadForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Full Name *</label>
+                        <input type="text" name="name" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50" placeholder="John Doe">
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">Email *</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">Phone *</label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50" placeholder="+91 00000 00000">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Location *</label>
+                        <input type="text" name="location" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-50" placeholder="City, Country">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-700 text-white py-4 rounded-lg font-bold text-lg hover:bg-blue-800 transition transform hover:scale-[1.02]">
+                        Get Free Consultation
+                    </button>
+                </form>
+                <div id="successMsg" class="hidden text-center py-10">
+                    <div class="bg-green-100 text-green-700 p-4 rounded-lg mb-4">
+                        <i data-lucide="check-circle" class="mx-auto w-12 h-12 mb-2"></i>
+                        <h4 class="font-bold text-xl">Thank You!</h4>
+                        <p>Our training consultant will contact you shortly.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Course Outline -->
-    <section class="py-16 md:py-32 bg-white overflow-hidden">
-        <div class="container mx-auto px-4 md:px-8">
-            <div class="text-center mb-16 md:mb-24" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">Course Outline</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">Comprehensive insights into ISO 9001:2015 and advanced auditing techniques.</p>
-                <div class="w-20 h-2 bg-orange-500 mx-auto rounded-full mt-6"></div>
+    <!-- Batch Info Bar -->
+    <section class="bg-white border-b sticky top-[64px] md:top-[72px] lg:top-[80px] z-40 shadow-sm overflow-x-auto lg:overflow-visible">
+        <div class="container mx-auto px-6 py-4 flex flex-col lg:flex-row items-center justify-between gap-6 min-w-max lg:min-w-0">
+            <div class="flex items-center gap-10 lg:gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="bg-blue-50 p-2 rounded-lg"><i data-lucide="calendar" class="text-blue-600 w-5 h-5"></i></div>
+                    <div class="whitespace-nowrap">
+                        <p class="text-[10px] text-gray-500 uppercase font-bold">Next Batch</p>
+                        <p class="font-bold text-gray-900 text-sm">16 Feb (Mon–Fri)</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="bg-red-50 p-2 rounded-lg"><i data-lucide="users" class="text-red-600 w-5 h-5"></i></div>
+                    <div class="whitespace-nowrap">
+                        <p class="text-[10px] text-red-600 uppercase font-bold pulse-red tracking-wider">Filling Fast</p>
+                        <p class="font-bold text-gray-900 text-sm">Seats: 10 Left Only</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="bg-green-50 p-2 rounded-lg"><i data-lucide="credit-card" class="text-green-600 w-5 h-5"></i></div>
+                    <div class="whitespace-nowrap">
+                        <p class="text-[10px] text-gray-500 uppercase font-bold">Course Fee</p>
+                        <p class="font-bold text-gray-900 text-sm">₹35,000 <span class="text-[10px] font-normal text-gray-400">incl. Exam</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Centered WhatsApp Button Wrapper -->
+            <div class="flex justify-center w-full lg:w-auto">
+                <a href="https://wa.me/919056742783?text=Hi, I'm interested in the ISO 9001 Course. Can I get the discount?" target="_blank" class="flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-3 rounded-full font-bold hover:bg-[#128C7E] transition shadow-lg w-full md:w-auto">
+                    <i data-lucide="message-circle"></i> Get Discount on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+ <!-- Accreditation Section (About Us) -->
+    <section id="about-us" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">SF Trainings: Accredited by Exemplar Global & IEB, UK</h2>
+                <div class="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+            <div class="max-w-4xl mx-auto mb-16 text-center" data-aos="fade-up">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    SF Trainings is a <strong>Recognized Training Provider (RTP)</strong> by Exemplar Global, the global benchmark for certification with over 30 years serving the professional community. We are also accredited by the <strong>International Education Board (IEB), UK</strong>, ensuring world-class standards in education and training.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    We deliver management systems auditor programs featuring extended learning content, innovative learning styles, and pathways for career advancement and employment opportunities.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Exemplar Global Benefits -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition" data-aos="fade-right">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-blue-600 p-3 rounded-2xl">
+                            <i data-lucide="shield-check" class="text-white w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Exemplar Global Benefits</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3">
+                            <i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800">Exemplar LINK Access:</span>
+                                <span class="text-gray-600">Exclusive platform for resources, networking, and ongoing professional development.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800">Extended Learning Content:</span>
+                                <span class="text-gray-600">In-depth materials to deepen expertise in auditing and management systems.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800">Career Enhancement:</span>
+                                <span class="text-gray-600">Credentials that boost employability and open doors to new opportunities.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="check-circle-2" class="text-blue-600 w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800">Innovative Learning Styles:</span>
+                                <span class="text-gray-600">Modern, engaging methods for optimal skill retention and application.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- IEB UK Benefits -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition" data-aos="fade-left">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-orange-500 p-3 rounded-2xl">
+                            <i data-lucide="globe" class="text-white w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">IEB, UK Benefits</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3">
+                            <i data-lucide="check-circle-2" class="text-orange-500 w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800">Global Prestige:</span>
+                                <span class="text-gray-600">UK-accredited credentials recognized worldwide for quality and compliance training.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="check-circle-2" class="text-orange-500 w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800">Detailed Transcripts:</span>
+                                <span class="text-gray-600">Comprehensive course records verifying skills and content mastery.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="check-circle-2" class="text-orange-500 w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800">International Mobility:</span>
+                                <span class="text-gray-600">Enhances employability across borders, ideal for multinational careers.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="check-circle-2" class="text-orange-500 w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-gray-800">Rigorous Standards:</span>
+                                <span class="text-gray-600">Ensures training meets high educational benchmarks for sustained professional growth.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Overview Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">What will you learn?</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Our comprehensive QMS Lead Auditor Course offers an enriching online learning experience to help you enrich your proficiency and expertise required to conduct a Quality Management System (QMS) audit for an organization adhering to ISO 9001:2015 standard.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Throughout this ISO 9001:2015 lead auditor course, we will delve into the intricacies of ISO 9001:2015, equipping you with the knowledge required to navigate the world of quality management systems effectively. You will not only grasp the core concepts and requirements of the standard but also learn the latest techniques in auditing methodologies.
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg italic text-blue-900">
+                        "Structured to provide a flexible and convenient learning environment through a combination of interactive modules, real-world case studies, and practical exercises."
+                    </div>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 card-hover transition">
+                        <i data-lucide="book-open" class="text-blue-600 mb-4 h-10 w-10"></i>
+                        <h4 class="font-bold mb-2">Interactive Modules</h4>
+                        <p class="text-xs text-gray-500">Engaging digital learning content</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 card-hover transition">
+                        <i data-lucide="briefcase" class="text-orange-500 mb-4 h-10 w-10"></i>
+                        <h4 class="font-bold mb-2">Real-world Case Studies</h4>
+                        <p class="text-xs text-gray-500">Practical application of audit principles</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 card-hover transition">
+                        <i data-lucide="file-check" class="text-green-600 mb-4 h-10 w-10"></i>
+                        <h4 class="font-bold mb-2">Document Audit</h4>
+                        <p class="text-xs text-gray-500">Mastering QMS documentation</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 card-hover transition">
+                        <i data-lucide="users" class="text-purple-600 mb-4 h-10 w-10"></i>
+                        <h4 class="font-bold mb-2">Expert-led sessions</h4>
+                        <p class="text-xs text-gray-500">Learn from seasoned ISO auditors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section id="outcomes" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Learning Outcomes</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div data-aos="fade-up" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                        <span class="bg-blue-100 p-2 rounded-lg"><i data-lucide="target" class="text-blue-600"></i></span>
+                        At the end of this course, you will be able to:
+                    </h3>
+                    <ul class="custom-bullet space-y-4 text-gray-700">
+                        <li>Gain essential knowledge and understanding of QMS ISO 9001:2015 and ISO 19011:2018 audit process.</li>
+                        <li>Assess the QMS of an organization in accordance with ISO 9001:2015 requirements to ensure improved performance.</li>
+                        <li>Plan, Conduct, Manage, and Complete the QMS audit in accordance with ISO 19011 principles.</li>
+                        <li>Understand document requirements by referring to sample organization documents.</li>
+                    </ul>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-blue-900 p-8 rounded-2xl shadow-xl text-white">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                        <span class="bg-blue-800 p-2 rounded-lg"><i data-lucide="star" class="text-orange-400"></i></span>
+                        Invaluable Career Benefits
+                    </h3>
+                    <ul class="custom-bullet space-y-4 text-blue-100">
+                        <li>Internationally accepted IEB, UK approved Lead Auditor Training Certificate.</li>
+                        <li>Understand application of PDCA, Risk-based thinking, and Process approach.</li>
+                        <li>Carry out Internal (1st party) and Supplier (2nd party) audits to add organizational value.</li>
+                        <li>Qualify for External audits (3rd Party) and pursue careers as consultant/auditor.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Outline Section -->
+    <section id="outline" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Course Outline</h2>
+                <p class="text-gray-600">A comprehensive 5-step curriculum covering standard requirements to audit execution.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
                 <!-- Module 1 -->
-                <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 card-hover transition-all" data-aos="fade-up">
-                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-xl text-xl font-bold">01</div>
-                    <h3 class="text-xl font-bold mb-4 text-blue-900 leading-tight">QMS Concepts and ISO 9001:2015</h3>
-                    <ul class="space-y-3 text-gray-600 text-sm md:text-base">
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> QMS concepts and benefits</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Relationship between PDCA and ISO</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Standard requirements</li>
+                <div data-aos="fade-up" class="bg-white p-6 rounded-xl shadow-sm outline-card">
+                    <h3 class="text-xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                        <span class="text-sm bg-blue-600 text-white w-8 h-8 flex items-center justify-center rounded-full">01</span>
+                        QMS Concepts & ISO 9001:2015
+                    </h3>
+                    <ul class="space-y-2 text-gray-600 text-sm pl-11">
+                        <li>• QMS concepts and benefits</li>
+                        <li>• Relationship between PDCA and ISO 9001:2015</li>
+                        <li>• ISO 9001:2015 standard requirements</li>
+                        <li>• QMS documentation</li>
                     </ul>
                 </div>
 
                 <!-- Module 2 -->
-                <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 card-hover transition-all" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-xl text-xl font-bold">02</div>
-                    <h3 class="text-xl font-bold mb-4 text-blue-900 leading-tight">Auditing Concepts</h3>
-                    <ul class="space-y-3 text-gray-600 text-sm md:text-base">
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Audit objectives & principles</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Types of audits and methods</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> End-to-end Audit process</li>
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white p-6 rounded-xl shadow-sm outline-card">
+                    <h3 class="text-xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                        <span class="text-sm bg-blue-600 text-white w-8 h-8 flex items-center justify-center rounded-full">02</span>
+                        Auditing Concepts
+                    </h3>
+                    <ul class="space-y-2 text-gray-600 text-sm pl-11">
+                        <li>• Audit objectives and auditing principles</li>
+                        <li>• Types of audits (1st, 2nd, and 3rd party)</li>
+                        <li>• Audit methods and the systematic process</li>
+                        <li>• ISO 19011 auditing guidelines</li>
                     </ul>
                 </div>
 
                 <!-- Module 3 -->
-                <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 card-hover transition-all" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-xl text-xl font-bold">03</div>
-                    <h3 class="text-xl font-bold mb-4 text-blue-900 leading-tight">Roles and Competency</h3>
-                    <ul class="space-y-3 text-gray-600 text-sm md:text-base">
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Lead auditor’s responsibilities</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Competency and qualification</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Auditor evaluation methods</li>
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white p-6 rounded-xl shadow-sm outline-card">
+                    <h3 class="text-xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                        <span class="text-sm bg-blue-600 text-white w-8 h-8 flex items-center justify-center rounded-full">03</span>
+                        Roles & Competency
+                    </h3>
+                    <ul class="space-y-2 text-gray-600 text-sm pl-11">
+                        <li>• Auditor and lead auditor's responsibilities</li>
+                        <li>• Competency and qualification of auditors</li>
+                        <li>• Auditor evaluation methods</li>
+                        <li>• Professional conduct and ethics</li>
                     </ul>
                 </div>
 
-                <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 card-hover transition-all" data-aos="fade-up">
-                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-xl text-xl font-bold">04</div>
-                    <h3 class="text-xl font-bold mb-4 text-blue-900 leading-tight">Planning an Audit</h3>
-                    <ul class="space-y-3 text-gray-600 text-sm md:text-base">
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Pre-audit planning</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Developing an audit plan</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Preparing checklists</li>
+                <!-- Module 4 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-white p-6 rounded-xl shadow-sm outline-card">
+                    <h3 class="text-xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                        <span class="text-sm bg-blue-600 text-white w-8 h-8 flex items-center justify-center rounded-full">04</span>
+                        Planning an Audit
+                    </h3>
+                    <ul class="space-y-2 text-gray-600 text-sm pl-11">
+                        <li>• Pre-audit planning and document review</li>
+                        <li>• Developing a detailed audit plan</li>
+                        <li>• Preparing checklists and working documents</li>
+                        <li>• Essential communication factors</li>
                     </ul>
                 </div>
 
-                <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 card-hover transition-all" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-xl text-xl font-bold">05</div>
-                    <h3 class="text-xl font-bold mb-4 text-blue-900 leading-tight">Conducting an Audit</h3>
-                    <ul class="space-y-3 text-gray-600 text-sm md:text-base">
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Meeting protocols</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Effective interviewing</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Recording nonconformities</li>
-                    </ul>
-                </div>
-
-                <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 card-hover transition-all" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-xl text-xl font-bold">6+7</div>
-                    <h3 class="text-xl font-bold mb-4 text-blue-900 leading-tight">Reporting & Follow-up</h3>
-                    <ul class="space-y-3 text-gray-600 text-sm md:text-base">
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Audit report prep</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Corrective action reporting</li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle" size="18" class="text-orange-500 mt-0.5 flex-shrink-0"></i> Monitoring implementation</li>
-                    </ul>
-                </div>
-
-                <div class="p-8 md:p-12 rounded-3xl bg-orange-50 border border-orange-100 lg:col-span-3 flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up">
-                    <div class="w-20 h-20 bg-orange-500 text-white rounded-3xl flex items-center justify-center flex-shrink-0 shadow-2xl">
-                        <i data-lucide="award" size="44"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-orange-900 mb-3">IEB Certification & Online Examination</h3>
-                        <p class="text-orange-800 opacity-80 mb-6 text-sm md:text-base leading-relaxed">Official registration and proctored final online examination to secure your global credential.</p>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-orange-200 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm">MCQ BASED</span>
-                            <span class="bg-orange-200 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm">ONLINE PORTAL</span>
-                            <span class="bg-orange-200 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm">PROCTORED</span>
-                        </div>
+                <!-- Module 5 -->
+                <div data-aos="fade-up" data-aos-delay="400" class="bg-white p-6 rounded-xl shadow-sm outline-card md:col-span-2">
+                    <h3 class="text-xl font-bold text-blue-900 mb-4 flex items-center gap-3">
+                        <span class="text-sm bg-blue-600 text-white w-8 h-8 flex items-center justify-center rounded-full">05</span>
+                        Conducting an Audit & Nonconformities
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm pl-11">
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• Opening meeting protocols</li>
+                            <li>• Effective interviewing techniques</li>
+                            <li>• Collecting and verifying objective evidence</li>
+                        </ul>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• Identifying and recording nonconformities</li>
+                            <li>• Closing meeting and reporting</li>
+                            <li>• Do's and Don'ts of professional auditing</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-     <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 md:px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-            <div class="max-w-4xl mx-auto space-y-4">
-                <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
-                    <button class="w-full p-6 text-left font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
-                        Do I need prior experience?
-                        <i data-lucide="chevron-down" class="transition"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-600 text-sm">
-                        While not mandatory, a basic understanding of ISO 9001:2015 standards and quality management principles is highly recommended to get the best out of this intensive course.
-                    </div>
+    <!-- Who Should Attend -->
+    <section id="who-should-attend" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold mb-4 gradient-text">Who Should Attend?</h2>
+                <p class="text-gray-600">Thoughtfully curated for a diverse range of professionals passionate about fostering excellence in quality management.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div data-aos="zoom-in" class="bg-white p-8 rounded-2xl border-t-4 border-blue-600 shadow-sm card-hover transition">
+                    <h4 class="font-bold text-lg mb-4">Strategic Leadership</h4>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li>• Top management & Heads of BUs</li>
+                        <li>• Functional Heads</li>
+                        <li>• Quality Management Consultants</li>
+                    </ul>
                 </div>
-                <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
-                    <button class="w-full p-6 text-left font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
-                        Is the exam included in the fee?
-                        <i data-lucide="chevron-down" class="transition"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-600 text-sm">
-                        Yes, the course fee is all-inclusive. It covers training materials, live sessions, the official online examination, and your digital certificate.
-                    </div>
+                <div data-aos="zoom-in" data-aos-delay="100" class="bg-white p-8 rounded-2xl border-t-4 border-orange-500 shadow-sm card-hover transition">
+                    <h4 class="font-bold text-lg mb-4">Implementation Teams</h4>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li>• Quality Managers</li>
+                        <li>• QMS Management Representatives</li>
+                        <li>• Implementation Core Group Members</li>
+                    </ul>
                 </div>
-                <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
-                    <button class="w-full p-6 text-left font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
-                        What are the pass criteria and reattempt policy?
-                        <i data-lucide="chevron-down" class="transition"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-600 text-sm">
-                        Participants must score at least 70% to pass. If you don't succeed on the first try, we offer one complimentary reattempt after a brief review session with our tutors.
-                    </div>
-                </div>
-                <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
-                    <button class="w-full p-6 text-left font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
-                        Are session recordings available?
-                        <i data-lucide="chevron-down" class="transition"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-600 text-sm">
-                        Yes, all live sessions are recorded. You will have access to these recordings till you appear for exam to review the concepts at your own pace.
-                    </div>
-                </div>
-                <div class="accordion-item bg-white rounded-xl shadow-sm border border-gray-100">
-                    <button class="w-full p-6 text-left font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
-                        What is the certificate validity?
-                        <i data-lucide="chevron-down" class="transition"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-600 text-sm">
-                        The Lead Auditor certificate is recognized globally. While the certificate itself doesn't expire, it is recommended to attend transition training whenever the ISO 9001 standard is revised (e.g., from 2015 to a future version).
-                    </div>
+                <div data-aos="zoom-in" data-aos-delay="200" class="bg-white p-8 rounded-2xl border-t-4 border-green-600 shadow-sm card-hover transition">
+                    <h4 class="font-bold text-lg mb-4">Aspiring Auditors</h4>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li>• Existing Internal Auditors</li>
+                        <li>• Professionals in QMS auditing roles</li>
+                        <li>• Career seekers in Quality Assurance</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Corporate CTA -->
-    <section class="py-24 bg-blue-900 text-white relative overflow-hidden">
-        <div class="container mx-auto px-4 md:px-8 text-center relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-8">Need training for 5+ participants?</h2>
-            <p class="text-blue-100 text-lg md:text-xl mb-12 max-w-3xl mx-auto opacity-90 leading-relaxed">Enhance your team's auditing capabilities with our tailored corporate programs. Get a customized quote and flexible schedule.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="https://wa.me/919056742783?text=Hi, I need a corporate quote for ISO 9001 training for my team." class="bg-orange-500 hover:bg-orange-600 text-white px-12 py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-2xl hover:scale-105">
-                    <i data-lucide="building"></i> Get Corporate Quote
-                </a>
-            </div>
-        </div>
-        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-800 rounded-full -mr-32 -mt-32 opacity-20"></div>
-        <div class="absolute bottom-0 left-0 w-48 h-48 bg-blue-800 rounded-full -ml-24 -mb-24 opacity-20"></div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 md:py-32 bg-white">
-        <div class="container mx-auto px-4 md:px-8">
-            <div class="flex flex-col lg:flex-row gap-16 items-start">
-                <div class="w-full lg:w-5/12" data-aos="fade-right">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Book Your Slot</h2>
-                    <p class="text-gray-600 mb-12 text-base md:text-lg leading-relaxed">Limited slots available per batch to ensure personalized attention. Send us your inquiry today to lock in your preferred schedule.</p>
-                    <div class="space-y-8">
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm"><i data-lucide="phone" size="24"></i></div>
-                            <div><h4 class="font-bold text-lg">WhatsApp / Call</h4><p class="text-gray-600 font-medium">+91-90567-42783</p></div>
-                        </div>
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm"><i data-lucide="mail" size="24"></i></div>
-                            <div><h4 class="font-bold text-lg">Email</h4><p class="text-gray-600 font-medium">info@sftrainings.org</p></div>
-                        </div>
-                    </div>
+    <!-- Business Benefits -->
+    <section id="benefits" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000" alt="Business Growth" class="rounded-3xl shadow-2xl">
                 </div>
-                <div class="w-full lg:w-7/12" data-aos="fade-left">
-                    <div class="bg-gray-50 p-6 md:p-12 rounded-[2rem] shadow-2xl border border-gray-100">
-                        <form id="leadForm" class="space-y-5">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                <input type="text" name="name" placeholder="Full Name *" class="w-full p-4 rounded-xl form-input shadow-sm" required>
-                                <input type="email" name="email" placeholder="Email Address *" class="w-full p-4 rounded-xl form-input shadow-sm" required>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <h2 class="text-3xl font-bold mb-8 gradient-text">Business Benefits</h2>
+                    <p class="mb-8 text-gray-600 leading-relaxed">
+                        Whether you come from manufacturing, service, healthcare, or any other sector, the ISO 9001 Lead Auditor Certification course offers invaluable knowledge to propel your organization forward.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                                <i data-lucide="user-check" class="text-blue-600"></i>
                             </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                <input type="tel" name="phone" placeholder="Phone Number *" class="w-full p-4 rounded-xl form-input shadow-sm" required>
-                                <input type="text" name="location" placeholder="City / Location *" class="w-full p-4 rounded-xl form-input shadow-sm" required>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Enhanced Customer Satisfaction</h4>
+                                <p class="text-sm text-gray-600">Consistently meet customer requirements and reduce overall business risk.</p>
                             </div>
-                            <textarea name="query" rows="4" placeholder="Your Query" class="w-full p-4 rounded-xl form-input shadow-sm"></textarea>
-                            <button type="submit" class="w-full btn-primary text-white py-5 rounded-xl font-bold text-xl shadow-2xl hover:shadow-orange-200 transition-all transform active:scale-95">Send Inquiry</button>
-                        </form>
-                        <div id="formSuccess" class="hidden mt-6 p-8 bg-green-100 text-green-700 rounded-2xl text-center font-bold text-lg">
-                            <i data-lucide="check-circle" class="mx-auto mb-2" size="32"></i>
-                            Inquiry Sent! Our team will contact you shortly.
                         </div>
-                        <div id="formError" class="hidden mt-6 p-8 bg-red-100 text-red-700 rounded-2xl text-center font-bold text-lg">
-                            Submission failed. Please try again.
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                                <i data-lucide="trending-up" class="text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Marketplace Advantage</h4>
+                                <p class="text-sm text-gray-600">Gain a strong commitment to providing consistent products and services.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                                <i data-lucide="shield-check" class="text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Operational Risk Prevention</h4>
+                                <p class="text-sm text-gray-600">Enhance controls of QMS Processes through a systematic improvement approach.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -431,78 +584,51 @@
         </div>
     </section>
 
-    <!-- FIXED CONTACT BAR -->
-    <div class="fixed-contact-bar">
-        <a href="#contact" class="bg-blue-900 text-white px-5 md:px-8 py-3 rounded-full font-bold text-xs md:text-sm uppercase tracking-wider pulse flex items-center gap-2 hover:bg-black transition-all">
-            <i data-lucide="send" size="16"></i> <span class="hidden sm:inline">Inquire Now</span><span class="sm:hidden">Book Now</span>
-        </a>
-        <div class="w-px h-8 bg-gray-200"></div>
-        <div class="flex gap-4">
-            <a href="https://wa.me/919056742783" target="_blank" class="text-green-600 hover:scale-110 transition-transform" aria-label="WhatsApp"><i data-lucide="message-circle" size="30"></i></a>
-            <a href="tel:+919056742783" class="text-blue-600 hover:scale-110 transition-transform" aria-label="Call"><i data-lucide="phone" size="30"></i></a>
+    <!-- CTA Footer -->
+    <section class="py-16 bg-blue-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Lead Quality Excellence?</h2>
+            <p class="text-blue-200 mb-8 max-w-2xl mx-auto">Join the IEB, UK approved training program and become a certified ISO 9001:2015 Lead Auditor.</p>
+            <a href="#register" class="bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition inline-block shadow-xl">
+                Start Your Journey Today
+            </a>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-950 text-white pt-20 pb-10 mb-24 md:mb-0">
-        <div class="container mx-auto px-4 md:px-8">
-            <!-- Offices Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                <!-- India Office -->
-                <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                    <div class="w-12 h-12 bg-blue-900/50 rounded-xl flex items-center justify-center mb-4 text-blue-400">
-                        <i data-lucide="map-pin" size="24"></i>
-                    </div>
-                    <h5 class="text-xl font-bold mb-3 text-orange-500">India</h5>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        146, Sector 82, Mohali,<br> Punjab - 160062
-                    </p>
-                    <a href="tel:+919056742782" class="flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
-                        <i data-lucide="phone" size="16"></i> +91 9056742782
-                    </a>
-                </div>
-
-                <!-- Canada Office -->
-                <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                    <div class="w-12 h-12 bg-blue-900/50 rounded-xl flex items-center justify-center mb-4 text-blue-400">
-                        <i data-lucide="map-pin" size="24"></i>
-                    </div>
-                    <h5 class="text-xl font-bold mb-3 text-orange-500">Canada</h5>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        8449, 116 A Street, Delta - V4C7N7,<br> Greater Vancouver
-                    </p>
-                    <a href="tel:+17787989624" class="flex items-center gap-2 text-white font-semibold hover:text-orange-400 transition-colors">
-                        <i data-lucide="phone" size="16"></i> +1 (778) 798-9624
-                    </a>
-                </div>
-
-                <!-- Dubai Office -->
-                <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                    <div class="w-12 h-12 bg-blue-900/50 rounded-xl flex items-center justify-center mb-4 text-blue-400">
-                        <i data-lucide="map-pin" size="24"></i>
-                    </div>
-                    <h5 class="text-xl font-bold mb-3 text-orange-500">Dubai</h5>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Suite No 2902 and 2903, The Prism Tower,<br> Business Bay, Dubai, UAE
-                    </p>
-                    <div class="flex items-center gap-2 text-white font-semibold">
-                        <i data-lucide="globe" size="16"></i> United Arab Emirates
-                    </div>
-                </div>
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div class="lg:col-span-2">
+                <img src="https://www.sftrainings.org/wp-content/uploads/elementor/thumbs/SF-Training-Final-Logo-1080-1-qikqabiklgbclt3t1wknxt9ybq8lqryju9ctvjsh60.png" alt="SF Footer Logo" class="h-16 mb-6 brightness-0 invert">
+                <p class="max-w-md text-sm leading-relaxed">
+                    Empowering professionals with internationally recognized certifications. Join our global network of quality professionals and lead organizational excellence.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="#outline" class="hover:text-white transition">Curriculum</a></li>
+                    <li><a href="#register" class="hover:text-white transition">Enrollment</a></li>
+                </ul>
             </div>
 
-            <hr class="border-gray-800 mb-10">
-
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <img src="https://www.sftrainings.org/wp-content/uploads/elementor/thumbs/SF-Training-Final-Logo-1080-1-qikqabiklgbclt3t1wknxt9ybq8lqryju9ctvjsh60.png" 
-                     class="h-10 grayscale brightness-200 opacity-60">
-                
-                <div class="text-center md:text-right">
-                    <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-gray-500 mb-2">
-                        &copy; 2024 SF Trainings. All rights reserved.
-                    </p>
-                    <a href="https://www.sftrainings.org/Privacy%20Policy/" class="text-[10px] text-orange-500/60 hover:text-orange-500 underline underline-offset-4">Privacy Policy</a>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Accreditation</h4>
+                <p class="text-xs mb-6">Approved Lead Auditor Training Provider under IEB, UK standards.</p>
+                <!-- Accreditation Logos In Footer -->
+                <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl" style="width:142px;">
+                    <img src="https://preeminent-speculoos-9536d8.netlify.app/assets/logos/ieb_logo_bg.png" alt="IEB" class="h-10 opacity-80 hover:opacity-100 transition">
+                    <img src="https://preeminent-speculoos-9536d8.netlify.app/assets/logos/logo2.png" alt="Logo 2" class="h-10 opacity-80 hover:opacity-100 transition">
                 </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+            <p>&copy; 2024 SF Trainings. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
             </div>
         </div>
     </footer>
@@ -511,16 +637,8 @@
         lucide.createIcons();
         AOS.init({ duration: 800, once: true });
 
-        function toggleAccordion(btn) {
-            const item = btn.parentElement;
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
-            if (!isActive) item.classList.add('active');
-        }
-
         const leadForm = document.getElementById('leadForm');
-        const successMsg = document.getElementById('formSuccess');
-        const errorMsg = document.getElementById('formError');
+        const successMsg = document.getElementById('successMsg');
 
         leadForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -528,7 +646,6 @@
             const originalText = btn.innerText;
             btn.disabled = true;
             btn.innerText = 'Processing...';
-            errorMsg.classList.add('hidden');
 
             const formData = new FormData(leadForm);
             const payload = {
@@ -536,7 +653,6 @@
                 email: formData.get('email'),
                 phone: formData.get('phone'),
                 location: formData.get('location'),
-                query: formData.get('query'),
                 source: 'ISO 9001 Course Landing Page',
                 timestamp: new Date().toISOString()
             };
@@ -550,11 +666,11 @@
                 if (response.ok) {
                     leadForm.classList.add('hidden');
                     successMsg.classList.remove('hidden');
-                } else { throw new Error('Network error'); }
+                } else { throw new Error('Error'); }
             } catch (err) {
                 btn.disabled = false;
                 btn.innerText = originalText;
-                errorMsg.classList.remove('hidden');
+                alert('Something went wrong. Please try again.');
             }
         });
     </script>
